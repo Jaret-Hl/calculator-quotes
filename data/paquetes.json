@@ -1,0 +1,91 @@
+[
+  {
+    "id": "basico",
+    "nombre": "Paquete Básico",
+    "etiqueta": "Esencial",
+    "orden": 1,
+    "ui": {
+      "border": "border-gray-300",
+      "highlight": false
+    },
+    "caracteristicas": [
+      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
+      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
+      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
+      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
+
+      { "key": "poliza_contable", "label": "Póliza contable", "incluido": false, "nota": "*" },
+      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": false, "nota": "*" },
+      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": false, "nota": "*" },
+      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": false, "nota": "*" },
+      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": false, "nota": "*" },
+      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": false, "nota": "*" }
+    ],
+    "condiciones": {
+      "membresia_cadi": "A partir de 150 empleados",
+      "ejecutivo_cuenta": "A partir de 150 empleados",
+      "ubicaciones": "1 ubicación",
+      "prestaciones": "De ley y caja de ahorro, fondo de ahorro y despensa"
+    }
+  },
+
+  {
+    "id": "profesional",
+    "nombre": "Paquete Profesional",
+    "etiqueta": "Corporativo",
+    "orden": 2,
+    "ui": {
+      "border": "border-orange-600",
+      "highlight": true
+    },
+    "caracteristicas": [
+      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
+      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
+      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
+      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
+      { "key": "poliza_contable", "label": "Póliza contable", "incluido": true },
+      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": true, "limite": "Hasta 3 reportes" },
+      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": true },
+      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": true },
+      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": true },
+      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": true }
+    ],
+    "condiciones": {
+      "membresia_cadi": "A partir de 100 empleados",
+      "ejecutivo_cuenta": "A partir de 150 empleados",
+      "ubicaciones": "Hasta 3 ubicaciones",
+      "prestaciones": "De ley y superiores",
+      "nota_legal": "Elaboración y firma de contratos y renuncias voluntarias en instalaciones del cliente. Aplica restricciones."
+    }
+  },
+
+  {
+    "id": "premium",
+    "nombre": "Paquete Premium",
+    "etiqueta": "Estratégico",
+    "orden": 3,
+    "ui": {
+      "border": "border-amber-100",
+      "highlight": true
+    },
+    "caracteristicas": [
+      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
+      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
+      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
+      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
+      { "key": "poliza_contable", "label": "Póliza contable", "incluido": true },
+      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": true },
+      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": true },
+      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": true },
+      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": true },
+      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": true }
+    ],
+    "condiciones": {
+      "membresia_cadi": "A partir de 50 empleados",
+      "ejecutivo_cuenta": "Ejecutivo de cuenta dedicado",
+      "ubicaciones": "Más de 3 ubicaciones",
+      "prestaciones": "De ley y superiores",
+      "nota_legal": "Elaboración y firma de contratos y renuncias voluntarias en instalaciones del cliente. Aplica restricciones."
+    }
+  }
+]

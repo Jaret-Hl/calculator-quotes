@@ -1,0 +1,618 @@
+<!-- Prototipo de cotizador: HTML + Tailwind CSS (single-file) -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prototipo - Cotizador RRHH</title>
+    <!-- Tailwind CDN (para prototipo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Pequeños estilos adicionales */
+      .step-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+      }
+      .scrollbar-thin::-webkit-scrollbar {
+        height: 6px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-slate-800">
+    <div class="max-w-7xl mx-auto p-6">
+      <!-- Hero -->
+      <header class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-semibold">
+            Gestiona nómina, asistencia y biométricos desde una sola plataforma
+          </h1>
+          <p class="mt-3 text-slate-600">
+            Configura tu cotización en menos de 2 minutos. Visualiza el impacto
+            económico en tiempo real.
+          </p>
+          <div class="mt-5 flex gap-3">
+            <button
+              id="startBtn"
+              class="bg-blue-500 text-white px-4 py-2 rounded-md"
+            >
+              Iniciar cotización
+            </button>
+            <a
+              href="#features"
+              class="text-slate-700 px-4 py-2 rounded-md border"
+              >Conocer características</a
+            >
+          </div>
+        </div>
+        <div class="hidden md:flex justify-center">
+          <!-- Placeholder dashboard mock -->
+          <div class="w-96 h-56 bg-white rounded-2xl shadow p-4">
+            <div class="h-6 bg-gray-200 rounded w-32 mb-4"></div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="col-span-2">
+                <div class="h-20 bg-gray-100 rounded mb-3"></div>
+                <div class="h-6 bg-gray-200 rounded w-24"></div>
+              </div>
+              <div>
+                <div class="h-28 bg-gray-100 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main layout: wizard + summary -->
+      <main class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Wizard column -->
+        <section class="lg:col-span-2">
+          <div class="bg-white rounded-xl shadow p-6">
+            <!-- Steps header -->
+            <div class="flex items-center gap-4 mb-6">
+              <ol id="stepIndicators" class="flex gap-3 items-center">
+                <li class="flex items-center gap-2">
+                  <span class="step-dot bg-blue-500"></span
+                  ><small>Empresa</small>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="step-dot bg-gray-300"></span
+                  ><small>Paquetes</small>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="step-dot bg-gray-300"></span
+                  ><small>Biométricos</small>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="step-dot bg-gray-300"></span
+                  ><small>Soporte</small>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="step-dot bg-gray-300"></span
+                  ><small>Resumen</small>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Wizard content -->
+            <div id="wizard" class="space-y-6">
+              <!-- Step 1: Tamaño de empresa -->
+              <div class="step" data-step="1">
+                <h2 class="text-xl font-medium">
+                  1. ¿Cuántos empleados deseas gestionar?
+                </h2>
+                <p class="text-sm text-slate-600 mt-2">
+                  El precio se calcula por empleado y por paquete seleccionado.
+                </p>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >Selecciona un rango</label
+                    >
+                    <div class="flex gap-2">
+                      <button
+                        class="sizeBtn px-3 py-2 rounded border"
+                        data-min="1"
+                        data-max="20"
+                      >
+                        1–20
+                      </button>
+                      <button
+                        class="sizeBtn px-3 py-2 rounded border"
+                        data-min="21"
+                        data-max="50"
+                      >
+                        21–50
+                      </button>
+                      <button
+                        class="sizeBtn px-3 py-2 rounded border"
+                        data-min="51"
+                        data-max="100"
+                      >
+                        51–100
+                      </button>
+                      <button
+                        class="sizeBtn px-3 py-2 rounded border"
+                        data-min="101"
+                        data-max="9999"
+                      >
+                        100+
+                      </button>
+                    </div>
+
+                    <div class="mt-3">
+                      <label class="block text-sm font-medium"
+                        >O ingresa el número exacto</label
+                      >
+                      <input
+                        id="employeeCount"
+                        type="number"
+                        min="1"
+                        value="10"
+                        class="mt-1 block w-40 rounded-md border px-3 py-2"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-sm font-medium mb-2"
+                      >¿Tu empresa tiene sedes?</label
+                    >
+                    <select
+                      id="locations"
+                      class="mt-1 block w-48 rounded-md border px-3 py-2"
+                    >
+                      <option value="1">1 sede</option>
+                      <option value="2">2 sedes</option>
+                      <option value="3">3 sedes</option>
+                      <option value="4">4+ sedes</option>
+                    </select>
+
+                    <div class="mt-4 text-sm text-slate-600">
+                      Consejo: más empleados -> descuentos automáticos por
+                      volumen.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex justify-end">
+                  <button
+                    id="toStep2"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Continuar
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2: Paquetes -->
+              <div class="step hidden" data-step="2">
+                <h2 class="text-xl font-medium">
+                  2. Selecciona el paquete que mejor se adapte a tu operación
+                </h2>
+                <div
+                  id="paquetesContainer"
+                  class="flex flex-col gap-4 w-full max-w-4xl mt-2"
+                ></div>
+                <!-- addonsQuestion -->
+                <div id="addonsQuestion" class="mt-6 hidden">
+                  <p class="text-sm text-slate-700">
+                    ¿Deseas agregar módulos adicionales a tu paquete?
+                  </p>
+
+                  <div class="mt-3 flex gap-2">
+                    <button id="addonsYes" class="px-3 py-2 border rounded-md">
+                      Sí
+                    </button>
+                    <button id="addonsNo" class="px-3 py-2 border rounded-md">
+                      No
+                    </button>
+                  </div>
+                </div>
+
+                <!-- modulos -->
+                <div id="addonsContainer" class="mt-6 hidden">
+                  <!-- aquí aparecerán los módulos -->
+                  <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="payroll"
+                      />
+                      <div>
+                        <div class="font-semibold">Nómina</div>
+                        <div class="text-sm text-slate-600">
+                          Automatiza cálculos, ISR e integraciones.
+                        </div>
+                      </div>
+                    </label>
+
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="attendance"
+                      />
+                      <div>
+                        <div class="font-semibold">Asistencia</div>
+                        <div class="text-sm text-slate-600">
+                          Registra entradas/salidas y turnos.
+                        </div>
+                      </div>
+                    </label>
+
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="hr"
+                      />
+                      <div>
+                        <div class="font-semibold">Flujo de aprobaciones</div>
+                        <div class="text-sm text-slate-600">
+                          Aprobación de vacaciones y nómina.
+                        </div>
+                      </div>
+                    </label>
+
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="portal"
+                      />
+                      <div>
+                        <div class="font-semibold">PERFORMANCE</div>
+                        <div class="text-sm text-slate-600">
+                          Módulo para evaluación de desempeño.
+                        </div>
+                      </div>
+                    </label>
+
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="reports"
+                      />
+                      <div>
+                        <div class="font-semibold">TALENT MANAGEMENT</div>
+                        <div class="text-sm text-slate-600">
+                          Módulo para gestión de talento.
+                        </div>
+                      </div>
+                    </label>
+
+                    <label
+                      class="moduleCard flex items-start p-4 rounded border cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        class="moduleCheckbox mr-3"
+                        data-key="recruitment"
+                      />
+                      <div>
+                        <div class="font-semibold">EXP</div>
+                        <div class="text-sm text-slate-600">Descripción</div>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                  <button id="backTo1" class="px-4 py-2 rounded-md border">
+                    Regresar
+                  </button>
+                  <button
+                    id="toStep3"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Continuar
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3: Biometricos -->
+              <div class="step hidden" data-step="3">
+                <h2 class="text-xl font-medium">
+                  3. Instalación de biométricos
+                </h2>
+                <p class="text-sm text-slate-600 mt-2">
+                  Cuéntanos si requieres instalación y cuántos dispositivos.
+                </p>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="flex items-center gap-3">
+                      <input
+                        type="radio"
+                        name="bioNeeded"
+                        value="yes"
+                        checked
+                      />
+                      <span>Sí, quiero instalar dispositivos</span>
+                    </label>
+                    <label class="flex items-center gap-3 mt-3">
+                      <input type="radio" name="bioNeeded" value="no" />
+                      <span>No, solo software</span>
+                    </label>
+
+                    <div id="bioDetails" class="mt-4">
+                      <label class="block text-sm"
+                        >Número de dispositivos</label
+                      >
+                      <input
+                        id="bioCount"
+                        type="number"
+                        min="0"
+                        value="1"
+                        class="mt-1 block w-28 rounded-md border px-3 py-2"
+                      />
+
+                      <label class="block text-sm mt-3"
+                        >Tipo de dispositivo</label
+                      >
+                      <select
+                        id="bioType"
+                        class="mt-1 block w-48 rounded-md border px-3 py-2"
+                      >
+                        <option value="basic">Biométrico básico</option>
+                        <option value="advanced">Biométrico avanzado</option>
+                        <option value="terminal">
+                          Terminal (con pantalla)
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="bg-gray-50 p-4 rounded-md border">
+                      <div class="font-medium">Incluye</div>
+                      <ul class="list-disc ml-5 mt-2 text-sm text-slate-600">
+                        <li>Instalación en sitio</li>
+                        <li>Configuración y pruebas</li>
+                        <li>Capacitación inicial</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                  <button id="backTo2" class="px-4 py-2 rounded-md border">
+                    Regresar
+                  </button>
+                  <button
+                    id="toStep4"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Continuar
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 4: Soporte -->
+              <div class="step hidden" data-step="4">
+                <h2 class="text-xl font-medium">4. Nivel de soporte</h2>
+                <p class="text-sm text-slate-600 mt-2">
+                  Escoge el plan de soporte que se ajuste a tu operación.
+                </p>
+
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <label
+                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
+                  >
+                    <input
+                      type="radio"
+                      name="support"
+                      value="standard"
+                      checked
+                      class="hidden"
+                    />
+                    <div class="font-semibold">Estándar</div>
+                    <div class="text-sm text-slate-600 mt-2">
+                      Respuesta 24h. Incluido.
+                    </div>
+                  </label>
+
+                  <label
+                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
+                  >
+                    <input
+                      type="radio"
+                      name="support"
+                      value="advanced"
+                      class="hidden"
+                    />
+                    <div class="font-semibold">Avanzado</div>
+                    <div class="text-sm text-slate-600 mt-2">
+                      Chat en vivo y SLA 8h. +$50/mes
+                    </div>
+                  </label>
+
+                  <label
+                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
+                  >
+                    <input
+                      type="radio"
+                      name="support"
+                      value="premium"
+                      class="hidden"
+                    />
+                    <div class="font-semibold">Premium</div>
+                    <div class="text-sm text-slate-600 mt-2">
+                      Ejecutivo dedicado. +$150/mes
+                    </div>
+                  </label>
+                </div>
+
+                <div class="mt-6 flex justify-between">
+                  <button id="backTo3" class="px-4 py-2 rounded-md border">
+                    Regresar
+                  </button>
+                  <button
+                    id="toStep5"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Ver resumen
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 5: Resumen -->
+              <div class="step hidden" data-step="5">
+                <h2 class="text-xl font-medium">5. Tu cotización</h2>
+                <p class="text-sm text-slate-600 mt-2">
+                  Revisa el desglose y descarga el PDF o agenda una llamada.
+                </p>
+
+                <div class="mt-4 bg-gray-50 p-4 rounded-md border">
+                  <div id="summaryHtml"></div>
+                </div>
+
+                <div class="mt-6 flex gap-3">
+                  <button
+                    id="downloadPdf"
+                    class="bg-white border px-4 py-2 rounded-md"
+                  >
+                    Generar PDF
+                  </button>
+                  <button
+                    id="scheduleCall"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Agendar llamada
+                  </button>
+                  <button id="saveQuote" class="px-4 py-2 rounded-md border">
+                    Guardar cotización
+                  </button>
+                </div>
+
+                <div class="mt-4 text-sm text-slate-600">
+                  Vigencia de la oferta: 30 días. Precios sujetos a cambio.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer mini inside wizard -->
+          <div class="mt-4 text-sm text-slate-600">
+            ¿Necesitas ayuda? Contáctanos por chat o correo.
+          </div>
+        </section>
+        <!-- Summary column -->
+        <aside class="lg:col-span-1">
+          <div class="sticky top-6 space-y-4">
+            <div class="bg-white rounded-xl shadow p-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-sm text-slate-600">
+                    Resumen en tiempo real
+                  </div>
+                  <div id="summaryTitle" class="text-lg font-semibold">
+                    Cotización provisional
+                  </div>
+                </div>
+                <div class="text-sm text-slate-600">Vigente</div>
+              </div>
+
+              <div class="mt-4 border-t pt-4 space-y-3 text-sm text-slate-700">
+                <div class="flex justify-between">
+                  <span>Empleados</span><span id="sumEmployees">10</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Módulos</span><span id="sumModules">3</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Instalación</span
+                  ><span id="sumInstallation">$0 MXN</span>
+                </div>
+                <div class="flex justify-between font-semibold">
+                  <span>Total mensual</span><span id="sumTotal">$0 MXN</span>
+                </div>
+              </div>
+
+              <!-- <div class="mt-4">
+              <div class="text-xs text-slate-600">Ahorro estimado</div>
+              <div id="sumSavings" class="text-sm font-medium">-</div>
+            </div> -->
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-4">
+              <div class="font-medium">¿Listo para avanzar?</div>
+              <p class="text-sm text-slate-600 mt-2">
+                Puedes guardar esta cotización o agendar una llamada con un
+                asesor para recibir atención personalizada.
+              </p>
+              <div class="mt-3 flex gap-2">
+                <button
+                  id="quickSave"
+                  class="w-full px-3 py-2 rounded-md border"
+                >
+                  Guardar
+                </button>
+                <button
+                  id="quickCall"
+                  class="w-full px-3 py-2 rounded-md bg-blue-500 text-white"
+                >
+                  Agendar
+                </button>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow p-4 text-sm text-slate-600">
+              <div class="font-medium">Señales de confianza</div>
+              <ul class="mt-2 list-disc ml-5">
+                <li>Compatibilidad con principales biométricos</li>
+                <li>Cálculos fiscales auditables</li>
+                <li>Soporte y onboarding incluidos</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <!-- Features (anchor) -->
+      <section id="features" class="mt-10">
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="text-lg font-medium">Características destacadas</h3>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <div class="font-semibold">Cumplimiento fiscal</div>
+              <div class="text-sm text-slate-600">
+                Actualizaciones automáticas según la normativa.
+              </div>
+            </div>
+            <div>
+              <div class="font-semibold">Integración biométricos</div>
+              <div class="text-sm text-slate-600">
+                Compatibilidad con múltiples marcas y modelos.
+              </div>
+            </div>
+            <div>
+              <div class="font-semibold">Reportes</div>
+              <div class="text-sm text-slate-600">
+                Exportaciones en CSV y PDF para contabilidad.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/js/paquetes.init.js"></script>
+
+    <!-- Script: lógica básica del prototipo -->
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
