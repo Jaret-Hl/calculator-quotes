@@ -2,18 +2,28 @@ import { state } from "../state/state.js";
 
 export function selectPaquete(paquete) {
 
-  // Guardamos paquete seleccionado
-  state.paquete = paquete.id;
+  state.paqueteSeleccionado = {
+    id: paquete.id,
+    nombre: paquete.nombre,
+    etiqueta: paquete.etiqueta,
+    tabuladores: paquete.tabuladores
+  };
 
-  // Los módulos incluidos vienen marcados por defecto
-  state.modules = {};
-
-  paquete.caracteristicas.forEach(c => {
-    state.modules[c.key] = c.incluido === true;
-  });
-
-  // Reset de addons
+  // limpiar addons cuando cambia paquete
   state.addons = {};
 
-  console.log("Paquete seleccionado:", paquete.id);
+  console.log("Paquete seleccionado:", paquete.nombre);
 }
+
+
+
+// Determina qué rango aplica según número de empleados
+export function findTabuladorForEmployees(paquete, employees) {
+
+  return paquete.tabuladores.find(t =>
+    employees >= t.min &&
+    employees <= t.max
+  ) || null;
+}
+
+

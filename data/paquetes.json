@@ -9,26 +9,102 @@
       "highlight": false
     },
     "caracteristicas": [
-      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
-      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
-      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
-      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
-
-      { "key": "poliza_contable", "label": "Póliza contable", "incluido": false, "nota": "*" },
-      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": false, "nota": "*" },
-      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": false, "nota": "*" },
-      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": false, "nota": "*" },
-      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": false, "nota": "*" },
-      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": false, "nota": "*" }
+      {
+        "key": "nomina",
+        "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)",
+        "incluido": true
+      },
+      {
+        "key": "imss_infonavit",
+        "label": "Automatización de Cálculos IMSS e INFONAVIT",
+        "incluido": true
+      },
+      {
+        "key": "layout_pagos",
+        "label": "Generación de Layout para Pagos",
+        "incluido": true
+      },
+      {
+        "key": "reportes_estandar",
+        "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)",
+        "incluido": true
+      },
+      {
+        "key": "poliza_contable",
+        "label": "Póliza contable",
+        "incluido": false,
+        "nota": "*"
+      },
+      {
+        "key": "reportes_personalizados",
+        "label": "Reportes personalizados",
+        "incluido": false,
+        "nota": "*"
+      },
+      {
+        "key": "admin_plataformas",
+        "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)",
+        "incluido": false,
+        "nota": "*"
+      },
+      {
+        "key": "interaccion_social",
+        "label": "Acceso a plataforma de interacción social",
+        "incluido": false,
+        "nota": "*"
+      },
+      {
+        "key": "incidencias_asistencia",
+        "label": "Control de gestión de incidencias y asistencia",
+        "incluido": false,
+        "nota": "*"
+      },
+      {
+        "key": "flujo_aprobacion",
+        "label": "Flujo de aprobación de nómina",
+        "incluido": false,
+        "nota": "*"
+      }
     ],
     "condiciones": {
       "membresia_cadi": "A partir de 150 empleados",
       "ejecutivo_cuenta": "A partir de 150 empleados",
       "ubicaciones": "1 ubicación",
       "prestaciones": "De ley y caja de ahorro, fondo de ahorro y despensa"
-    }
+    },
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 2000
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 250
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 235
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 220
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 210
+      }
+    ]
   },
-
   {
     "id": "profesional",
     "nombre": "Paquete Profesional",
@@ -39,16 +115,57 @@
       "highlight": true
     },
     "caracteristicas": [
-      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
-      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
-      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
-      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
-      { "key": "poliza_contable", "label": "Póliza contable", "incluido": true },
-      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": true, "limite": "Hasta 3 reportes" },
-      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": true },
-      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": true },
-      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": true },
-      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": true }
+      {
+        "key": "nomina",
+        "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)",
+        "incluido": true
+      },
+      {
+        "key": "imss_infonavit",
+        "label": "Automatización de Cálculos IMSS e INFONAVIT",
+        "incluido": true
+      },
+      {
+        "key": "layout_pagos",
+        "label": "Generación de Layout para Pagos",
+        "incluido": true
+      },
+      {
+        "key": "reportes_estandar",
+        "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)",
+        "incluido": true
+      },
+      {
+        "key": "poliza_contable",
+        "label": "Póliza contable",
+        "incluido": true
+      },
+      {
+        "key": "reportes_personalizados",
+        "label": "Reportes personalizados",
+        "incluido": true,
+        "limite": "Hasta 3 reportes"
+      },
+      {
+        "key": "admin_plataformas",
+        "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)",
+        "incluido": true
+      },
+      {
+        "key": "interaccion_social",
+        "label": "Acceso a plataforma de interacción social",
+        "incluido": true
+      },
+      {
+        "key": "incidencias_asistencia",
+        "label": "Control de gestión de incidencias y asistencia",
+        "incluido": true
+      },
+      {
+        "key": "flujo_aprobacion",
+        "label": "Flujo de aprobación de nómina",
+        "incluido": true
+      }
     ],
     "condiciones": {
       "membresia_cadi": "A partir de 100 empleados",
@@ -56,9 +173,40 @@
       "ubicaciones": "Hasta 3 ubicaciones",
       "prestaciones": "De ley y superiores",
       "nota_legal": "Elaboración y firma de contratos y renuncias voluntarias en instalaciones del cliente. Aplica restricciones."
-    }
+    },
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 2200
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 280
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 265
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 250
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 240
+      }
+    ]
   },
-
   {
     "id": "premium",
     "nombre": "Paquete Premium",
@@ -69,16 +217,56 @@
       "highlight": true
     },
     "caracteristicas": [
-      { "key": "nomina", "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)", "incluido": true },
-      { "key": "imss_infonavit", "label": "Automatización de Cálculos IMSS e INFONAVIT", "incluido": true },
-      { "key": "layout_pagos", "label": "Generación de Layout para Pagos", "incluido": true },
-      { "key": "reportes_estandar", "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)", "incluido": true },
-      { "key": "poliza_contable", "label": "Póliza contable", "incluido": true },
-      { "key": "reportes_personalizados", "label": "Reportes personalizados", "incluido": true },
-      { "key": "admin_plataformas", "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)", "incluido": true },
-      { "key": "interaccion_social", "label": "Acceso a plataforma de interacción social", "incluido": true },
-      { "key": "incidencias_asistencia", "label": "Control de gestión de incidencias y asistencia", "incluido": true },
-      { "key": "flujo_aprobacion", "label": "Flujo de aprobación de nómina", "incluido": true }
+      {
+        "key": "nomina",
+        "label": "Cálculo preciso de Nómina y obligaciones (Fonacot, ISN, ISR, SYS)",
+        "incluido": true
+      },
+      {
+        "key": "imss_infonavit",
+        "label": "Automatización de Cálculos IMSS e INFONAVIT",
+        "incluido": true
+      },
+      {
+        "key": "layout_pagos",
+        "label": "Generación de Layout para Pagos",
+        "incluido": true
+      },
+      {
+        "key": "reportes_estandar",
+        "label": "Reportes Estándar (CFDI, Opiniones de cumplimiento, acumulados)",
+        "incluido": true
+      },
+      {
+        "key": "poliza_contable",
+        "label": "Póliza contable",
+        "incluido": true
+      },
+      {
+        "key": "reportes_personalizados",
+        "label": "Reportes personalizados",
+        "incluido": true
+      },
+      {
+        "key": "admin_plataformas",
+        "label": "Administración de plataformas (vales de despensa, fondo de ahorro, caja de ahorro)",
+        "incluido": true
+      },
+      {
+        "key": "interaccion_social",
+        "label": "Acceso a plataforma de interacción social",
+        "incluido": true
+      },
+      {
+        "key": "incidencias_asistencia",
+        "label": "Control de gestión de incidencias y asistencia",
+        "incluido": true
+      },
+      {
+        "key": "flujo_aprobacion",
+        "label": "Flujo de aprobación de nómina",
+        "incluido": true
+      }
     ],
     "condiciones": {
       "membresia_cadi": "A partir de 50 empleados",
@@ -86,6 +274,38 @@
       "ubicaciones": "Más de 3 ubicaciones",
       "prestaciones": "De ley y superiores",
       "nota_legal": "Elaboración y firma de contratos y renuncias voluntarias en instalaciones del cliente. Aplica restricciones."
-    }
+    },
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 2400
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 320
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 305
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 290
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 280
+      }
+    ]
   }
 ]
