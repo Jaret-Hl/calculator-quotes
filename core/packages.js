@@ -23,6 +23,27 @@ export function findTabuladorForEmployees(paquete, employees) {
   ) || null;
 }
 
+export function selectAddon(addon, isSelected) {
+  if (isSelected) {
+    state.addons[addon.id] = {
+      id: addon.id,
+      nombre: addon.nombre,
+      etiqueta: addon.etiqueta,
+      tabuladores: addon.tabuladores
+    };
+  } else {
+    delete state.addons[addon.id];
+  }
+  console.log("Addon actualizado:", addon.nombre, "->", isSelected);
+}
+
+export function findTabuladorForEmployeesAddon(addon, employees) {
+  return addon.tabuladores.find(t =>
+    employees >= t.min &&
+    employees <= t.max
+  ) || null;
+}
+
 export function resolveRangedCost(tab, empleados) {
   const costo = parseCurrencyMXN(tab.costo);
 

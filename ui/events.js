@@ -2,6 +2,8 @@ import { state } from "../state/state.js";
 import { $ } from "./dom.js";
 import { goToStep } from "./navigation.js";
 import { renderSummary } from "./summary.js";
+import { renderAddons } from "../js/addons/addons.renderer.js";
+import { initAddons } from "../js/addons/addons.init.js";
 
 export function bindEvents() {
   // -------- STEP 1 --------
@@ -54,6 +56,11 @@ export function bindEvents() {
       $("#employeeCount").value = avg;
       renderSummary(state);
     });
+  });
+
+  document.getElementById("cotizacion_personalizada")?.addEventListener("click", () => {
+    // $("#employeeCount").focus();
+    console.log("Cotización personalizada seleccionada");
   });
 
   // Cambio en número de sedes
@@ -125,23 +132,32 @@ export function bindEvents() {
   });
 
   // -------- ADDONS QUESTION --------
-  const addonsQuestion = document.getElementById("addonsQuestion");
+  const addonsYesBtn = document.getElementById("addonsYes");
+  const addonsNoBtn = document.getElementById("addonsNo");
   const addonsContainer = document.getElementById("addonsContainer");
 
-  document.getElementById("addonsYes")?.addEventListener("click", () => {
-    addonsContainer?.classList.remove("hidden");
-  });
-
-  document.getElementById("addonsNo")?.addEventListener("click", () => {
-    addonsContainer?.classList.add("hidden");
-    // Desmarcar todos los addons
-    document.querySelectorAll(".moduleCheckbox").forEach((cb) => {
-      cb.checked = false;
-      const key = cb.dataset.key;
-      state.addons[key] = false;
+  if (addonsYesBtn) {
+    addonsYesBtn.addEventListener("click", async () => {
+      if (addonsContainer) {
+        addonsContainer.classList.remove("hidden");
+        
+        // Cargar y renderizar addons
+        const addons = await initAddons();
+        renderAddons(addons, "addonsContainer");
+      }
     });
-    renderSummary(state);
-  });
+  }
+
+  if (addonsNoBtn) {
+    addonsNoBtn.addEventListener("click", () => {
+      if (addonsContainer) {
+        addonsContainer.classList.add("hidden");
+      }
+      // Limpiar addons seleccionados
+      state.addons = {};
+      renderSummary(state);
+    });
+  }
 
   // -------- BOTONES DE ACCIÓN --------
   $("#startBtn")?.addEventListener("click", () => {

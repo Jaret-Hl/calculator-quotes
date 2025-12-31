@@ -1,4 +1,4 @@
-import { findTabuladorForEmployees } from "./packages.js";
+import { findTabuladorForEmployees, findTabuladorForEmployeesAddon } from "./packages.js";
 
 export function computePackageCost(state, paquete) {
   const emp = Number(state.employees);
@@ -36,6 +36,22 @@ export function computePackageCost(state, paquete) {
   };
 }
 
+export function computeAddonCost(state, addon) {
+  const emp = Number(state.employees);
+  const tab = findTabuladorForEmployeesAddon(addon, emp);
+
+  if (!tab) {
+    return 0;
+  }
+
+  // rango 1–5 — costo mensual fijo
+  if (tab.tipo === "mensual") {
+    return tab.precio;
+  }
+  // rangos 6+ — precio unitario por empleado
+  return emp * tab.precio;
+}
+
 export const calculateQuote = (state) => {
   const { employees, paqueteSeleccionado, addons, bioNeeded, bioCount, bioType, support } = state;
   const emp = Number(employees);
@@ -49,9 +65,9 @@ export const calculateQuote = (state) => {
   let addonsCost = 0;
   const addonsArray = Object.keys(addons).filter(key => addons[key]);
   for (const addonKey of addonsArray) {
-    // Simulamos precio de addons (ajustar según tu lógica real)
-    const addonPrice = emp * 50; // ejemplo: $50 MXN por empleado por addon
-    addonsCost += addonPrice;
+    const addon = addons[addonKey];
+    const addonCost = computeAddonCost(state, addon);
+    addonsCost += addonCost;
   }
 
   // 3. calcular costo de biométricos
