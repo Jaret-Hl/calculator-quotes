@@ -23,18 +23,13 @@ export function renderSummary(state) {
     return;
   }
 
-  const modeLabel =
-    quote.details.mode === "mensual"
-      ? "Costo mensual fijo"
-      : "Costo por empleado";
-
   $("#summaryHtml").innerHTML = `
     <div class="grid gap-3 text-sm">
 
       <div class="font-semibold text-base">Paquete seleccionado</div>
       <div class="bg-white p-3 rounded border">
         <div class="font-medium">${quote.details.packageName}</div>
-        <div class="text-slate-600 text-xs mt-1">${modeLabel}</div>
+        <div class="text-slate-600 text-xs mt-1">Precio mensual según rango de empleados</div>
       </div>
 
       <div class="border-b pb-2"></div>

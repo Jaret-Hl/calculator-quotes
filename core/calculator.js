@@ -2,12 +2,10 @@ import { findTabuladorForEmployees, findTabuladorForEmployeesAddon } from "./pac
 
 export function computePackageCost(state, paquete) {
   const emp = Number(state.employees);
-
   const tab = findTabuladorForEmployees(paquete, emp);
 
   if (!tab) {
     return {
-      mode: "none",
       unitCost: 0,
       employees: emp,
       range: null,
@@ -15,24 +13,12 @@ export function computePackageCost(state, paquete) {
     };
   }
 
-  // rango 1–5 — costo mensual fijo
-  if (tab.tipo === "mensual") {
-    return {
-      mode: "mensual",
-      unitCost: tab.precio,
-      employees: emp,
-      range: { min: tab.min, max: tab.max },
-      totalMXN: tab.precio,
-    };
-  }
-
-  // rangos 6+ — precio unitario por empleado
+  // Todos los tabuladores ahora son rangos con precio fijo mensual
   return {
-    mode: "unitario",
     unitCost: tab.precio,
     employees: emp,
     range: { min: tab.min, max: tab.max },
-    totalMXN: emp * tab.precio,
+    totalMXN: tab.precio,
   };
 }
 
@@ -44,12 +30,8 @@ export function computeAddonCost(state, addon) {
     return 0;
   }
 
-  // rango 1–5 — costo mensual fijo
-  if (tab.tipo === "mensual") {
-    return tab.precio;
-  }
-  // rangos 6+ — precio unitario por empleado
-  return emp * tab.precio;
+  // Precio fijo mensual según el rango
+  return tab.precio;
 }
 
 export const calculateQuote = (state) => {
@@ -59,7 +41,7 @@ export const calculateQuote = (state) => {
   // 1. calcular costo base del paquete
   const baseCost = paqueteSeleccionado 
     ? computePackageCost(state, paqueteSeleccionado)
-    : { totalMXN: 0, mode: 'none', unitCost: 0, range: null };
+    : { totalMXN: 0, unitCost: 0, range: null };
 
   // 2. calcular costo de addons
   let addonsCost = 0;
@@ -78,7 +60,7 @@ export const calculateQuote = (state) => {
       advanced: 5500,
       terminal: 7500
     };
-    const installationCost = 1500; // por dispositivo
+    const installationCost = 1500;
     biometricsCost = (bioUnitPrices[bioType] + installationCost) * bioCount;
   }
 
@@ -91,7 +73,7 @@ export const calculateQuote = (state) => {
   };
   supportCost = supportPrices[support] || 0;
 
-  // 5. total general
+  // 5. total general (todo es mensual)
   const totalMXN = baseCost.totalMXN + addonsCost + biometricsCost + supportCost;
   
   return {
@@ -104,7 +86,6 @@ export const calculateQuote = (state) => {
       packageName: paqueteSeleccionado?.nombre || 'Sin paquete',
       employees: emp,
       range: baseCost.range,
-      mode: baseCost.mode,
       unitCost: baseCost.unitCost,
       addonsCount: addonsArray.length,
       bioCount,
