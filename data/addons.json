@@ -8,32 +8,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 500
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 70
+        "precio": 570
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 75
+        "precio": 575
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 80
+        "precio": 580
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 75
+        "precio": 575
       }
     ]
   },
@@ -46,32 +41,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 650
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 90
+        "precio": 740
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 100
+        "precio": 750
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 110
+        "precio": 760
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 120
+        "precio": 770
       }
     ]
   },
@@ -84,32 +74,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 650
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 90
+        "precio": 740
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 100
+        "precio": 750
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 110
+        "precio": 760
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 120
+        "precio": 770
       }
     ]
   },
@@ -122,32 +107,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 550
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 80
+        "precio": 630
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 85
+        "precio": 635
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 90
+        "precio": 640
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 95
+        "precio": 645
       }
     ]
   }

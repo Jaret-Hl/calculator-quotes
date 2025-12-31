@@ -76,32 +76,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 2000
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 250
+        "precio": 2250
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 235
+        "precio": 2235
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 220
+        "precio": 2220
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 210
+        "precio": 2210
       }
     ]
   },
@@ -178,32 +173,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 2200
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 280
+        "precio": 2480
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 265
+        "precio": 2465
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 250
+        "precio": 2450
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 240
+        "precio": 2440
       }
     ]
   },
@@ -279,32 +269,27 @@
       {
         "min": 1,
         "max": 5,
-        "tipo": "mensual",
         "precio": 2400
       },
       {
         "min": 6,
         "max": 25,
-        "tipo": "unitario",
-        "precio": 320
+        "precio": 2720
       },
       {
         "min": 26,
         "max": 50,
-        "tipo": "unitario",
-        "precio": 305
+        "precio": 2705
       },
       {
         "min": 51,
         "max": 75,
-        "tipo": "unitario",
-        "precio": 290
+        "precio": 2690
       },
       {
         "min": 76,
         "max": 100,
-        "tipo": "unitario",
-        "precio": 280
+        "precio": 2680
       }
     ]
   }
