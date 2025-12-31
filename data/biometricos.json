@@ -1,0 +1,9 @@
+[
+  {
+    "id": "bio_zk_basic",
+    "nombre": "ZKTeco básico",
+    "costo_dispositivo_mxn": "4200.00",
+    "costo_instalacion_mxn": "800.00",
+    "charge": "one_time"
+  }
+]
