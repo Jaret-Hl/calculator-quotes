@@ -1,6 +1,6 @@
-import { state } from "../state/state.js";
-import { renderSummary } from "../ui/summary.js";
-import { selectPaquete } from "../core/packages.js";
+import { state } from "../../state/state.js";
+import { renderSummary } from "../../ui/summary.js";
+import { selectPaquete } from "../../core/packages.js";
 import { iconoIncluido, textoClase } from "./paquetes.helpers.js";
 
 export function renderPaquetes(paquetes, containerId) {

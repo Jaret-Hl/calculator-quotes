@@ -14,9 +14,6 @@ export function selectPaquete(paquete) {
 
   console.log("Paquete seleccionado:", paquete.nombre);
 }
-
-
-
 // Determina qué rango aplica según número de empleados
 export function findTabuladorForEmployees(paquete, employees) {
 
@@ -26,4 +23,15 @@ export function findTabuladorForEmployees(paquete, employees) {
   ) || null;
 }
 
+export function resolveRangedCost(tab, empleados) {
+  const costo = parseCurrencyMXN(tab.costo);
 
+  const isFlatRange =
+    tab.min_empleados === 1 && tab.max_empleados === 5;
+
+  return {
+    modalidad: isFlatRange ? "monto_fijo" : "por_empleado",
+    costoBase: costo,
+    total: isFlatRange ? costo : costo * empleados
+  };
+}
