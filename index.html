@@ -69,28 +69,28 @@
         <section class="lg:col-span-2">
           <div class="bg-white rounded-xl shadow p-6">
             <!-- Steps header -->
-            <div class="flex items-center gap-4 mb-6">
-              <ol id="stepIndicators" class="flex gap-3 items-center">
-                <li class="flex items-center gap-2">
-                  <span class="step-dot bg-slate-500"></span
-                  ><small>Empresa</small>
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="step-dot bg-gray-300"></span
-                  ><small>Paquetes</small>
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="step-dot bg-gray-300"></span
-                  ><small>Biométricos</small>
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="step-dot bg-gray-300"></span
-                  ><small>Soporte</small>
-                </li>
-                <li class="flex items-center gap-2">
-                  <span class="step-dot bg-gray-300"></span
-                  ><small>Resumen</small>
-                </li>
+            <div class="flex items-center gap-4 mb-6 overflow-x-auto scrollbar-thin pb-2">
+              <ol id="stepIndicators" class="flex gap-2 sm:gap-3 items-center min-w-max">
+              <li class="flex items-center gap-1 sm:gap-2">
+                <span class="step-dot bg-slate-500"></span
+                ><small class="text-xs sm:text-sm whitespace-nowrap">Empresa</small>
+              </li>
+              <li class="flex items-center gap-1 sm:gap-2">
+                <span class="step-dot bg-gray-300"></span
+                ><small class="text-xs sm:text-sm whitespace-nowrap">Paquetes</small>
+              </li>
+              <li class="flex items-center gap-1 sm:gap-2">
+                <span class="step-dot bg-gray-300"></span
+                ><small class="text-xs sm:text-sm whitespace-nowrap">Biométricos</small>
+              </li>
+              <li class="flex items-center gap-1 sm:gap-2">
+                <span class="step-dot bg-gray-300"></span
+                ><small class="text-xs sm:text-sm whitespace-nowrap">Soporte</small>
+              </li>
+              <li class="flex items-center gap-1 sm:gap-2">
+                <span class="step-dot bg-gray-300"></span
+                ><small class="text-xs sm:text-sm whitespace-nowrap">Resumen</small>
+              </li>
               </ol>
             </div>
 
@@ -110,33 +110,33 @@
                     <label class="block text-sm font-medium mb-2"
                       >Selecciona un rango</label
                     >
-                    <div class="flex gap-2">
+                    <div class="grid grid-cols-2 sm:flex gap-2">
                       <button
-                        class="sizeBtn px-3 py-2 rounded border"
-                        data-min="1"
-                        data-max="20"
+                      class="sizeBtn px-3 py-2 rounded border text-sm"
+                      data-min="1"
+                      data-max="20"
                       >
-                        1–20
+                      1–20
                       </button>
                       <button
-                        class="sizeBtn px-3 py-2 rounded border"
-                        data-min="21"
-                        data-max="50"
+                      class="sizeBtn px-3 py-2 rounded border text-sm"
+                      data-min="21"
+                      data-max="50"
                       >
-                        21–50
+                      21–50
                       </button>
                       <button
-                        class="sizeBtn px-3 py-2 rounded border"
-                        data-min="51"
-                        data-max="100"
+                      class="sizeBtn px-3 py-2 rounded border text-sm"
+                      data-min="51"
+                      data-max="100"
                       >
-                        51–100
+                      51–100
                       </button>
                       <button
-                        class="px-3 py-2 rounded border"
-                        id="cotizacion_personalizada"
+                      class="px-3 py-2 rounded border text-sm"
+                      id="cotizacion_personalizada"
                       >
-                        101+
+                      101+
                       </button>
                     </div>
 
