@@ -1,12 +1,13 @@
 export const state = {
   step: 1,
   employees: 10,
+  locations: 1,
 
-  paquete: null,   // <-- nuevo
+  paqueteSeleccionado: null,
 
-  modules: {},     // ← ahora depende del paquete
+  modules: {},
 
-  addons: {},      // <-- nuevos módulos adicionales
+  addons: {},
 
   bioNeeded: false,
   bioCount: 0,
