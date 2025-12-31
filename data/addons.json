@@ -1,0 +1,154 @@
+[
+  {
+    "id": "gestion_asistencia",
+    "nombre": "Gestión de Asistencia",
+    "etiqueta": "GA",
+    "orden": 1,
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 500
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 70
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 75
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 80
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 75
+      }
+    ]
+  },
+  {
+    "id": "talent_management",
+    "nombre": "Talent Management",
+    "etiqueta": "TM",
+    "orden": 1,
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 650
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 90
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 100
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 110
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 120
+      }
+    ]
+  },
+  {
+    "id": "experience",
+    "nombre": "Experience",
+    "etiqueta": "EXP",
+    "orden": 1,
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 650
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 90
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 100
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 110
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 120
+      }
+    ]
+  },
+  {
+    "id": "performance",
+    "nombre": "Performance",
+    "etiqueta": "PER",
+    "orden": 1,
+    "tabuladores": [
+      {
+        "min": 1,
+        "max": 5,
+        "tipo": "mensual",
+        "precio": 550
+      },
+      {
+        "min": 6,
+        "max": 25,
+        "tipo": "unitario",
+        "precio": 80
+      },
+      {
+        "min": 26,
+        "max": 50,
+        "tipo": "unitario",
+        "precio": 85
+      },
+      {
+        "min": 51,
+        "max": 75,
+        "tipo": "unitario",
+        "precio": 90
+      },
+      {
+        "min": 76,
+        "max": 100,
+        "tipo": "unitario",
+        "precio": 95
+      }
+    ]
+  }
+]
