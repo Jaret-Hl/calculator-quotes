@@ -110,34 +110,24 @@
                     <label class="block text-sm font-medium mb-2"
                       >Selecciona un rango</label
                     >
-                    <div class="grid grid-cols-2 sm:flex gap-2">
-                      <button
-                      class="sizeBtn px-3 py-2 rounded border text-sm"
-                      data-min="1"
-                      data-max="20"
-                      >
-                      1–20
-                      </button>
-                      <button
-                      class="sizeBtn px-3 py-2 rounded border text-sm"
-                      data-min="21"
-                      data-max="50"
-                      >
-                      21–50
-                      </button>
-                      <button
-                      class="sizeBtn px-3 py-2 rounded border text-sm"
-                      data-min="51"
-                      data-max="100"
-                      >
-                      51–100
-                      </button>
-                      <button
-                      class="px-3 py-2 rounded border text-sm"
-                      id="cotizacion_personalizada"
-                      >
-                      101+
-                      </button>
+                    
+                    <!-- Slider para seleccionar rango -->
+                    <div class="px-2">
+                      <input
+                        id="employeeRangeSlider"
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="5"
+                        class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-slate-500"
+                      />
+                      <div class="flex justify-between text-xs text-slate-500 mt-1">
+                        <span>1</span>
+                        <span>25</span>
+                        <span>50</span>
+                        <span>75</span>
+                        <span>100</span>
+                      </div>
                     </div>
 
                     <div class="mt-3">
@@ -152,6 +142,13 @@
                         class="mt-1 block w-40 rounded-md border px-3 py-2"
                       />
                     </div>
+
+                    <button
+                      class="mt-3 px-3 py-2 rounded border text-sm hover:bg-gray-50"
+                      id="cotizacion_personalizada"
+                    >
+                      ¿Más de 100 empleados? Click aquí
+                    </button>
                   </div>
 
                   <div>
@@ -245,15 +242,17 @@
                         type="radio"
                         name="bioNeeded"
                         value="yes"
+                        id="bioNeededYes"
                         checked
                       />
                       <span>Sí, quiero instalar dispositivos</span>
                     </label>
                     <label class="flex items-center gap-3 mt-3">
-                      <input type="radio" name="bioNeeded" value="no" />
+                      <input type="radio" name="bioNeeded" value="no" id="bioNeededNo" />
                       <span>No, solo software</span>
                     </label>
 
+                    <!-- bioDetails visible por defecto ya que "yes" está checked -->
                     <div id="bioDetails" class="mt-4">
                       <label class="block text-sm"
                         >Número de dispositivos</label
@@ -434,17 +433,17 @@
 
               <div class="mt-4 border-t pt-4 space-y-3 text-sm text-slate-700">
                 <div class="flex justify-between">
-                  <span>Empleados</span><span id="sumEmployees">10</span>
+                  <span>Empleados</span><span id="sumEmployees"></span>
                 </div>
                 <div class="flex justify-between">
-                  <span>Módulos</span><span id="sumModules">3</span>
+                  <span>Módulos</span><span id="sumModules"></span>
                 </div>
                 <div class="flex justify-between">
                   <span>Instalación</span
-                  ><span id="sumInstallation">$0 MXN</span>
+                  ><span id="sumInstallation"></span>
                 </div>
                 <div class="flex justify-between font-semibold">
-                  <span>Total mensual</span><span id="sumTotal">$0 MXN</span>
+                  <span>Total mensual</span><span id="sumTotal"></span>
                 </div>
               </div>
 
