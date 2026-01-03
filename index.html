@@ -85,10 +85,6 @@
               </li>
               <li class="flex items-center gap-1 sm:gap-2">
                 <span class="step-dot bg-gray-300"></span
-                ><small class="text-xs sm:text-sm whitespace-nowrap">Soporte</small>
-              </li>
-              <li class="flex items-center gap-1 sm:gap-2">
-                <span class="step-dot bg-gray-300"></span
                 ><small class="text-xs sm:text-sm whitespace-nowrap">Resumen</small>
               </li>
               </ol>
@@ -243,17 +239,16 @@
                         name="bioNeeded"
                         value="yes"
                         id="bioNeededYes"
-                        checked
                       />
                       <span>Sí, quiero instalar dispositivos</span>
                     </label>
                     <label class="flex items-center gap-3 mt-3">
-                      <input type="radio" name="bioNeeded" value="no" id="bioNeededNo" />
+                      <input type="radio" name="bioNeeded" value="no" id="bioNeededNo" checked />
                       <span>No, solo software</span>
                     </label>
 
-                    <!-- bioDetails visible por defecto ya que "yes" está checked -->
-                    <div id="bioDetails" class="mt-4">
+                    <!-- bioDetails oculto por defecto -->
+                    <div id="bioDetails" class="mt-4 hidden">
                       <label class="block text-sm"
                         >Número de dispositivos</label
                       >
@@ -301,82 +296,14 @@
                     id="toStep4"
                     class="bg-slate-500 text-white px-4 py-2 rounded-md"
                   >
-                    Continuar
-                  </button>
-                </div>
-              </div>
-
-              <!-- Step 4: Soporte -->
-              <div class="step hidden" data-step="4">
-                <h2 class="text-xl font-medium">4. Nivel de soporte</h2>
-                <p class="text-sm text-slate-600 mt-2">
-                  Escoge el plan de soporte que se ajuste a tu operación.
-                </p>
-
-                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <label
-                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
-                  >
-                    <input
-                      type="radio"
-                      name="support"
-                      value="standard"
-                      checked
-                      class="hidden"
-                    />
-                    <div class="font-semibold">Estándar</div>
-                    <div class="text-sm text-slate-600 mt-2">
-                      Respuesta 24h. Incluido.
-                    </div>
-                  </label>
-
-                  <label
-                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
-                  >
-                    <input
-                      type="radio"
-                      name="support"
-                      value="advanced"
-                      class="hidden"
-                    />
-                    <div class="font-semibold">Avanzado</div>
-                    <div class="text-sm text-slate-600 mt-2">
-                      Chat en vivo y SLA 8h. +$50/mes
-                    </div>
-                  </label>
-
-                  <label
-                    class="p-4 border rounded-md text-center cursor-pointer supportCard"
-                  >
-                    <input
-                      type="radio"
-                      name="support"
-                      value="premium"
-                      class="hidden"
-                    />
-                    <div class="font-semibold">Premium</div>
-                    <div class="text-sm text-slate-600 mt-2">
-                      Ejecutivo dedicado. +$150/mes
-                    </div>
-                  </label>
-                </div>
-
-                <div class="mt-6 flex justify-between">
-                  <button id="backTo3" class="px-4 py-2 rounded-md border">
-                    Regresar
-                  </button>
-                  <button
-                    id="toStep5"
-                    class="bg-slate-500 text-white px-4 py-2 rounded-md"
-                  >
                     Ver resumen
                   </button>
                 </div>
               </div>
 
-              <!-- Step 5: Resumen -->
-              <div class="step hidden" data-step="5">
-                <h2 class="text-xl font-medium">5. Tu cotización</h2>
+              <!-- Step 4: Resumen (antes era Step 5) -->
+              <div class="step hidden" data-step="4">
+                <h2 class="text-xl font-medium">4. Tu cotización</h2>
                 <p class="text-sm text-slate-600 mt-2">
                   Revisa el desglose y descarga el PDF o agenda una llamada.
                 </p>

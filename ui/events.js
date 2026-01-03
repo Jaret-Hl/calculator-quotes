@@ -315,3 +315,20 @@ document.addEventListener("DOMContentLoaded", () => {
     bioDetails.classList.toggle("hidden", !bioNeededYes.checked);
   }
 });
+
+// Biometrics radio buttons - show/hide details
+const bioNeededYes = document.getElementById("bioNeededYes");
+const bioNeededNo = document.getElementById("bioNeededNo");
+const bioDetails = document.getElementById("bioDetails");
+
+bioNeededYes?.addEventListener("change", () => {
+  if (bioDetails) {
+    bioDetails.classList.remove("hidden");
+  }
+});
+
+bioNeededNo?.addEventListener("change", () => {
+  if (bioDetails) {
+    bioDetails.classList.add("hidden");
+  }
+});
