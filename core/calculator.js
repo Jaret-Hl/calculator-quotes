@@ -43,10 +43,17 @@ export const calculateQuote = (state) => {
     ? computePackageCost(state, paqueteSeleccionado)
     : { totalMXN: 0, unitCost: 0, range: null };
 
-  // 2. calcular costo de addons
+  // 2. calcular costo de addons (excluyendo los incluidos en el paquete)
   let addonsCost = 0;
+  const addonsIncluidos = paqueteSeleccionado?.addonsIncluidos || [];
   const addonsArray = Object.keys(addons).filter(key => addons[key]);
+  
   for (const addonKey of addonsArray) {
+    // Skip if addon is included in the package
+    if (addonsIncluidos.includes(addonKey)) {
+      continue;
+    }
+    
     const addon = addons[addonKey];
     const addonCost = computeAddonCost(state, addon);
     addonsCost += addonCost;
