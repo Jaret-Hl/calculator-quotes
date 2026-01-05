@@ -46,7 +46,8 @@
       { "min": 26, "max": 50, "precio": 2235 },
       { "min": 51, "max": 75, "precio": 2220 },
       { "min": 76, "max": 100, "precio": 2210 }
-    ]
+    ],
+    "addonsIncluidos": []
   },
   {
     "id": "profesional",
@@ -95,7 +96,8 @@
       { "min": 26, "max": 50, "precio": 2465 },
       { "min": 51, "max": 75, "precio": 2450 },
       { "min": 76, "max": 100, "precio": 2440 }
-    ]
+    ],
+    "addonsIncluidos": ["gestion_asistencia"]
   },
   {
     "id": "premium",
@@ -144,6 +146,7 @@
       { "min": 26, "max": 50, "precio": 2705 },
       { "min": 51, "max": 75, "precio": 2690 },
       { "min": 76, "max": 100, "precio": 2680 }
-    ]
+    ],
+    "addonsIncluidos": ["gestion_asistencia"]
   }
 ]

@@ -6,13 +6,15 @@ export function selectPaquete(paquete) {
     id: paquete.id,
     nombre: paquete.nombre,
     etiqueta: paquete.etiqueta,
-    tabuladores: paquete.tabuladores
+    tabuladores: paquete.tabuladores,
+    addonsIncluidos: paquete.addonsIncluidos || []
   };
 
   // limpiar addons cuando cambia paquete
   state.addons = {};
 
   console.log("Paquete seleccionado:", paquete.nombre);
+  console.log("Addons incluidos:", paquete.addonsIncluidos);
 }
 // Determina qué rango aplica según número de empleados
 export function findTabuladorForEmployees(paquete, employees) {
